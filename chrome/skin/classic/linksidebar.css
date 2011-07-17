@@ -1,0 +1,126 @@
+#list-of-links {
+	margin: 0 !important;
+	-moz-appearance: none !important;	
+	border-right: 0 !important;
+	border-left: 0 !important;
+
+}
+#search-links-in-list {
+	margin: 0 !important;
+}
+treechildren::-moz-tree-cell-text(data){
+  color: #0000de;
+}
+treechildren::-moz-tree-cell-text(title){
+  color: #0000ff;
+}
+treechildren::-moz-tree-cell-text(url){
+  color: #0000ff;
+}
+treechildren::-moz-tree-cell(hover){
+	cursor: pointer;
+}
+treechildren::-moz-tree-cell-text(hover){
+	text-decoration: underline;
+	cursor: pointer;
+}
+treechildren::-moz-tree-cell-text(selected){
+	text-decoration: underline;
+	color: #ffffff !important;
+	font-weight: bold;
+	cursor: pointer;
+}
+treechildren::-moz-tree-cell-text(bold){
+	font-weight: bold;
+}
+treechildren::-moz-tree-row(notFound) {
+	border: #c90000 solid 2px;
+}
+treechildren::-moz-tree-row(notFoundHideTopBorder) {
+	border: #c90000 solid 2px;
+	border-top: 0px;
+}
+treechildren::-moz-tree-row(highlight) {
+	border: #3875B6 solid 2px;
+}
+
+treechildren{
+	background-color: #ffffff;
+}
+.lockButton {
+	list-style-image: url('chrome://linksidebar/skin/Secure.png');
+	/*-moz-image-region: rect(0px, 16px, 16px, 0px);*/ /* For OS X, which has this image as a sprite */
+}
+#linksidebar-toolbarbutton{
+  list-style-image: url('chrome://linksidebar/skin/link.png');
+}
+#linksidebar-toolbarbutton:hover{
+  list-style-image: url('chrome://linksidebar/skin/link_over.png');
+}
+
+
+treechildren::-moz-tree-image(status_1), .status_1{
+	list-style-image: url('chrome://linksidebar/skin/information.png');
+	max-width: 16px !important;
+	height: 16px !important;	
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_2), .status_2{
+	list-style-image: url('chrome://linksidebar/skin/ok.png');
+	max-width: 16px !important;
+	height: 16px !important;
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_3), .status_3{
+	list-style-image: url('chrome://linksidebar/skin/information.png');
+	max-width: 16px !important;
+	height: 16px !important;	
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_4), .status_4{
+	list-style-image: url('chrome://linksidebar/skin/error.png');
+	max-width: 16px !important;
+	height: 16px !important;	
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_5), .status_5{
+	list-style-image: url('chrome://linksidebar/skin/error2.png');
+	max-width: 16px !important;
+	height: 16px !important;
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_6), .status_6{
+	list-style-image: url('chrome://linksidebar/skin/cross.png');
+	max-width: 16px !important;
+	height: 16px !important;	
+}
+treechildren::-moz-tree-image(status_7), .status_7 {
+	list-style-image: url('chrome://linksidebar/skin/timeout.png');
+	max-width: 16px !important;
+	height: 16px !important;
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_8), .status_8{
+	list-style-image: url('chrome://linksidebar/skin/unsupported.png');
+	max-width: 16px !important;
+	height: 16px !important;
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_9) {
+	list-style-image: url('chrome://linksidebar/skin/loading_16.png');
+	max-width: 16px !important;
+	height: 16px !important;
+	margin-right: 3px !important;
+}
+treechildren::-moz-tree-image(status_default), .status_default {
+	max-width: 16px !important;
+	height: 16px !important;
+}
+treechildren::-moz-tree-image(status_0) {
+	list-style-image: url('chrome://linksidebar/skin/bullet.png');
+	max-width: 16px !important;
+	max-height: 16px !important;
+}
+#linksidebar-cancel-test-button {
+	list-style-image: url('chrome://linksidebar/skin/cross.png');
+}

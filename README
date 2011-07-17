@@ -1,0 +1,15 @@
+LinkSidebar
+An extension for Mozilla Firefox.
+
+View, search and test hyperlinks in a web page.
+Perform group actions on multiple links like opening in tabs, copying link locations or testing to determine response times. Allows you to search/sort links and highlight their position on the webpage.
+
+https://addons.mozilla.org/en-US/firefox/addon/linksidebar/
+
+Build Instructions:
+
+1. Download the Extension Developer extension (https://addons.mozilla.org/en-US/firefox/addon/extension-developer/) and choose the 'build extension' option.
+2. Get the Firefox versions allowable for hosting on addons.mozilla.ord from this page: https://addons.mozilla.org/en-US/firefox/pages/appversions/ and update the install.rdf file with the latest tested versions.
+
+
+

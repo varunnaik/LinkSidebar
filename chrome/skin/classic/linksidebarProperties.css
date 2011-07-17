@@ -1,0 +1,9 @@
+#linksidebar-props-linkHeader {
+	min-height: 140px !important;
+}
+#linksidebar-props-count {
+	margin-top: 2px !important;
+}
+#linksidebar-props-linkStatusIcon {
+	margin-left: 1px;
+}

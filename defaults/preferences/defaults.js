@@ -1,0 +1,12 @@
+pref("linksidebar.customLinkcol", false);
+pref("linksidebar.customBgCol", false);
+pref("linksidebar.linkcol", "#0000cd");
+pref("linksidebar.bgcol", "#000000");
+pref("linksidebar.clkaction", "0");
+pref("linksidebar.showbtn", true);
+pref("linksidebar.timeout", 15000);
+pref("linksidebar.maxThreads", "4");
+pref("linksidebar.requestType", "HEAD");
+pref("linksidebar.showStatus", "icons");
+pref("linksidebar.showDuplicates", 0);
+pref("linksidebar.duplicatesType", 0);

@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!-- linksidebar styles -->
+<?xml-stylesheet href="chrome://linksidebar/skin/linksidebar.css" type="text/css"?>
+<?xml-stylesheet href="chrome://linksidebar/skin/linksidebarLinks.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+
+<?xul-overlay href="chrome://global/content/editMenuOverlay.xul"?>
+<?xul-overlay href="chrome://browser/content/places/placesOverlay.xul"?>
+
+
+<!DOCTYPE overlay [
+<!ENTITY % linksidebarDTD SYSTEM "chrome://linksidebar/locale/linksidebar.dtd">
+%linksidebarDTD;
+]>
+ 
+<page id="linksidebar-linklistPanel" orient="vertical"       
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+		onload="this.focus();  Linksidebar.init()" 
+		onunload="Linksidebar.unInit(); window.top.XULBrowserWindow.setOverLink('', null);">
+
+		<script type="application/x-javascript" src="chrome://linksidebar/content/linksidebar.js" />
+		
+		<stringbundleset>
+			<stringbundle id="linksidebar-stringBundle" 
+					src="chrome://linksidebar/locale/linksidebar.properties"/>
+		</stringbundleset>
+		
+		<keyset>
+			<key id="linksidebar-selectall-key" oncommand="Linksidebar.selectAll()"
+			modifiers="accel" key="&linksidebar.selectall.accesskey;" />
+			<key id="linksidebar-copyselected-key" oncommand="Linksidebar.copySelectedUrls()"
+			modifiers="accel" key="&linksidebar.copyurls.accesskey;" />
+			<key id="linksidebar-invert-selection" oncommand="Linksidebar.invertSelection()"
+			modifiers="accel" key="&linksidebar.invertselection.accesskey;" />
+			<key id="linksidebar-popout" oncommand="Linksidebar.popoutSidebar()"
+			modifiers="accel" key="u" />
+		</keyset>
+	
+		<popupset>
+		<menupopup id="linksContext" onpopupshowing="Linksidebar.fixPopup(event)">
+			<menuitem id="linksidebar-context_open"
+			              oncommand="Linksidebar.openSelectedLinks('current')"
+			              label="&linksidebar.open.label;"
+			              accesskey="&linksidebar.open.accessKey;"
+			              default="true"
+			              selectiontype="single"
+						  disabled="true"
+			              selection="link"/>
+			    <menuitem id="linksidebar-context_open:newtab"
+			              oncommand="Linksidebar.openSelectedLinks('tab')"
+			              label="&linksidebar.openInNewTab.label;"
+			              accesskey="&linksidebar.openInNewTab.accessKey;"
+			              selectiontype="single"
+						  disabled="true"						  
+			              selection="link"/>
+			    <menuitem id="linksidebar-context_open:newwindow"
+			              oncommand="Linksidebar.openSelectedLinks('window')"
+			              label="&linksidebar.openInNewWindow.label;"
+			              accesskey="&linksidebar.openInNewWindow.accessKey;"						  
+			              selectiontype="single"
+						  disabled="true"						  
+			              selection="link"/>						  
+			    <menuseparator id="linksidebar-context_openSeparator"/>
+				<menuitem id="linksidebar-addBookmarkContextItem"
+						  label="&linksidebar.bookmarkLink.label;"
+						  accesskey="&linksidebar.bookmarkLink.accessKey;"
+			              selection="link"
+			              selectiontype="single"
+						  disabled="true"						  
+			              oncommand="Linksidebar.addBookmark();"/>
+			    <menuitem id="linksidebar-context-copylink"
+			              label="&linksidebar.copyLink.label;"
+			              accesskey="&linksidebar.copyLink.accessKey;"
+			              oncommand="Linksidebar.copySelectedUrls()"/>
+			    <menuseparator id="linksidebar-context_openSeparator"/>
+			    <menuitem id="linksidebar-context-reload"
+			              label="&linksidebar.reloadLinks.label;"
+			              accesskey="&linksidebar.reloadLinks.accessKey;"
+			              disabled="false"				
+			              oncommand="Linksidebar.reloadTree()"/>			   						  
+				<menuseparator id="linksidebar-context_selectSeparator"/>
+				<menuitem id="linksidebar-context_selectAll"
+			              oncommand="Linksidebar.selectAll()"
+						  label="&linksidebar.selectalllinks.label;"
+			              tooltiptext="&linksidebar.selectalllinks.tooltiptext;"
+						  accesskey="&linksidebar.selectalllinks.accessKey;" />	
+				<menuitem id="linksidebar-context_invertSelection"
+						  oncommand="Linksidebar.invertSelection()"
+						  label="&linksidebar.invertselection.label;"
+			              tooltiptext="&linksidebar.invertselection.tooltiptext;"
+						  accesskey="&linksidebar.invertselection.accessKey;" />
+				<menuitem id="linksidebar-context_deselect"
+						  oncommand="Linksidebar.clearTreeSelection()"
+						  label="&linksidebar.deselect.label;"
+			              tooltiptext="&linksidebar.deselect.tooltiptext;"
+						  accesskey="&linksidebar.deselect.accessKey;" />						  
+				<menuseparator id="linksidebar-context_testSeparator"/>
+				<menuitem id="linksidebar-highlight"
+			              oncommand="Linksidebar.showInPage()"
+						  tooltiptext="&linksidebar.context_highlightLinks.tooltiptext;"
+						  accesskey="&linksidebar.context_highlightLinks.accessKey;"						  
+			              label="&linksidebar.context_highlightLinks.label;"/>
+				<menuitem id="linksidebar-un_highlight"
+			              oncommand="Linksidebar.removeLinkOverlay()"
+						  tooltiptext="&linksidebar.context_unHighlightLinks.tooltiptext;"
+						  accesskey="&linksidebar.context_unHighlightLinks.accessKey;"						  
+			              label="&linksidebar.context_unHighlightLinks.label;"/>
+				 <menuseparator id="linksidebar-context_rangeSeparator"/>	
+				<menuitem id="linksidebar-context_testLink"
+			              oncommand="Linksidebar.testLinks('selected')"
+			              label="&linksidebar.testselectedlinks.label;"
+						  tooltiptext="&linksidebar.testselectedlinks.tooltiptext;"
+						  accesskey="&linksidebar.testselectedlinks.accessKey;"/>				
+				<menuitem id="linksidebar-context_testAll"
+			              oncommand="Linksidebar.testLinks('all')"
+			              label="&linksidebar.testalllinks.label;"
+						  tooltiptext="&linksidebar.testalllinks.tooltiptext;"
+						  accesskey="&linksidebar.testalllinks.accessKey;"/>
+				<menuitem id="linksidebar-context_highlightTested"
+			              oncommand="Linksidebar.highlightTestedLinks()"
+			              label="&linksidebar.highlightTestedLinks.label;"
+						  tooltiptext="&linksidebar.highlightTestedLinks.tooltiptext;"
+						  accesskey="&linksidebar.highlightTestedLinks.accessKey;"/>		  
+				<menuseparator id="linksidebar-context_testSeparator"/>		  
+				<menuitem id="linksidebar-properties"
+			              oncommand="Linksidebar.showProperties()"
+						  accesskey="&linksidebar.properties.accessKey;"						  
+			              label="&linksidebar.properties.label;"/>					  
+		</menupopup>
+		</popupset>
+		
+		<hbox>
+			<spacer width="4px" />
+			<toolbarbutton id="linksidebar-locklinks-button" class="lockButton toolbarbutton-1" label="&linksidebar.locklinks.label;" autoCheck="true" type="checkbox" oncommand="Linksidebar.toggleLinkLock()" />
+			<spacer width="50%" onlcick="Linksidebar.clearTreeSelection()" />
+		</hbox>
+		<textbox id="search-links-in-list" type="timed" timeout="500" oncommand="Linksidebar.search()"
+				onfocus="Linksidebar.textboxFocus(true)" onblur="Linksidebar.textboxFocus(false)" />
+		<tree id="list-of-links"
+			flex="1"
+			seltype="multiple"
+			enablecolumndrag="true"
+			context="linksContext"			
+			onclick="Linksidebar.handleTreeClick(event);"
+			onselect=";"
+			onmousemove="Linksidebar.handleTreeMouseMove(event);"
+			onmouseout="window.top.XULBrowserWindow.setOverLink('', null);"
+			type="places">
+			<treecols>				
+				<treecol id="linksidebar-linkName" label="&linksidebar.linktext.label;" flex="1" primary="true" persist="width ordinal hidden" tooltiptext="Link name" onclick="Linksidebar.sortTree(this, event)" class="sortDirectionIndicator" sortDirection="natural" sortActive="true"/>
+				<splitter class="tree-splitter" />
+				<treecol id="linksidebar-linkUrl" label="&linksidebar.url.label;" flex="1" persist="width ordinal hidden" hidden="true" tooltiptext="Link URL" onclick="Linksidebar.sortTree(this, event)" class="sortDirectionIndicator" sortDirection="natural" />
+				<splitter class="tree-splitter"/>
+				<treecol id="linksidebar-linkDomain" label="&linksidebar.domain.label;" flex="1" persist="width ordinal hidden" hidden="true" tooltiptext="Domain of URL" onclick="Linksidebar.sortTree(this, event)" class="sortDirectionIndicator" sortDirection="natural" />
+				<treecol id="linksidebar-linkStatus" label="&linksidebar.teststatus.label;" flex="1"  hidden="true" persist="hidden ordinal" tooltiptext="Link Status" onclick="Linksidebar.sortTree(this, event)" class="sortDirectionIndicator" sortDirection="natural" />
+			</treecols>
+			<treechildren flex="1" />
+		</tree>		
+		<vbox onclick="Linksidebar.clearTreeSelection()">
+			<button id="linksidebar-cancel-test-button" label="&linksidebar.cancelTest.label;" oncommand="Linksidebar.cancelTest()" collapsed="true" />
+			<label id="linksidebar-num-links" value="" />
+		</vbox>
+</page>

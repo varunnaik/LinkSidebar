@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://linksidebar/skin/linksidebar.css" type="text/css"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % linksidebarDTD SYSTEM "chrome://linksidebar/locale/linksidebar.dtd">
+%linksidebarDTD;
+]>
+
+<overlay id="linksidebar-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">	 
+	<script type="application/x-javascript" src="chrome://linksidebar/content/linksidebar.js"/>
+	
+	
+	<menupopup id="viewSidebarMenu">
+		<menuitem key="linksidebar-open-sidebar-key" observes="linksidebar-sidebar" />
+	</menupopup>
+
+  
+  <keyset id="mainKeyset">
+    <key id="linksidebar-sidebar-key" oncommand="toggleSidebar('linksidebar-sidebar');"
+        modifiers="accel,shift" key="&linksidebar.toggle.accessKey;"  />
+  </keyset>
+  
+  <broadcasterset id="mainBroadcasterSet"> 
+    <broadcaster id="linksidebar-sidebar" 
+                 label="&linksidebar.links.label;"
+                 autoCheck="false"
+                 type="checkbox"
+                 group="sidebar"
+				 key="linksidebar-sidebar-key"
+                 sidebarurl="chrome://linksidebar/content/linklist.xul"
+                 sidebartitle="Links"
+                 oncommand="toggleSidebar('linksidebar-sidebar');" />
+  </broadcasterset>
+  
+  <menupopup id="menu_ToolsPopup">
+		<menuitem id="linksidebar-options-menuitem"
+					label="&linksidebar.prefstitle.title;"
+					oncommand="Linksidebar.showPrefs();"
+					accesskey="L"
+					insertafter="devToolsSeparator" />
+  </menupopup>
+  
+  <toolbarpalette id="BrowserToolbarPalette">
+	<toolbarbutton id="linksidebar-toolbarbutton" class="toolbarbutton-1"
+		type="checkbox" autocheck="false"
+		label="&linksidebar.label;" tooltiptext="Open Links Sidebar"
+	    oncommand="toggleSidebar('linksidebar-sidebar');"/>
+  </toolbarpalette>	
+</overlay>

@@ -1,0 +1,93 @@
+<!ENTITY linksidebar.toggle.accessKey "l">
+<!ENTITY linksidebar.label "LinkSidebar">
+<!ENTITY linksidebar.links.label "Länkar">
+<!ENTITY linksidebar.open.tooltip "Öppna LinkSidebar">
+<!ENTITY linksidebar.locklinks.label "Lås">
+<!ENTITY linksidebar.linktext.label "Länktext">
+<!ENTITY linksidebar.url.label "URL">
+<!ENTITY linksidebar.domain.label "Domän">
+<!ENTITY linksidebar.teststatus.label "Teststatus">
+<!ENTITY linksidebar.prefstitle.title "Inställningar för LinkSidebar">
+<!ENTITY linksidebar.display.label "Visning">
+<!ENTITY linksidebar.testing.label "Testning">
+<!ENTITY linksidebar.colors.label "Färger">
+<!ENTITY linksidebar.customlinkcol.label "Använd anpassad färg för länkar">
+<!ENTITY linksidebar.custombg.label "Använd anpassad bakgrundsfärg">
+<!ENTITY linksidebar.clickaction.label "När jag klickar på en länk i sidopanelen">
+<!ENTITY linksidebar.noaction.label "Gör ingenting">
+<!ENTITY linksidebar.openInCurrentTab.label "Öppna länken i den aktuella fliken">
+<!ENTITY linksidebar.highlightInDocument.label "Färgmarkera länken i dokumentet (om synlig)">
+<!ENTITY linksidebar.numThreads.label "Antal samtidiga tester">
+<!ENTITY linksidebar.timeout.label "Tidsgräns (ms)">
+<!ENTITY linksidebar.requestType.label "Typ av begäran">
+<!ENTITY linksidebar.test_selected_links.label "Testa markerade länkar">
+<!ENTITY linksidebar.test_all_links.label "Testa alla länkar">
+<!ENTITY linksidebar.linkurl.label "URL:">
+<!ENTITY linksidebar.domain.label "Domän:">
+<!ENTITY linksidebar.status.title "Teststatus">
+<!ENTITY linksidebar.status.label "HTTP-status:">
+<!ENTITY linksidebar.testDate.label "Testades:">
+<!ENTITY linksidebar.responseTime.label "Svarstid:">
+<!ENTITY linksidebar.milliseconds.label "ms">
+<!ENTITY linksidebar.header.label "Fullständigt svarshuvud:">
+<!ENTITY linksidebar.linkInPageUrl.label "Sidadress:">
+<!ENTITY linksidebar.cancelTest.label "Avbryt test">
+<!ENTITY linksidebar.statusDisplay.label "Visa teststatus som">
+<!ENTITY linksidebar.showIconsOnly.label "Endast ikoner">
+<!ENTITY linksidebar.showIconsText.label "Ikoner med text">
+<!ENTITY linksidebar.bookmarkLink.label "Bokmärk denna länk">
+<!ENTITY linksidebar.bookmarkLink.accessKey "l">
+<!ENTITY linksidebar.duplicateLinks.label "Dubblettlänkar">
+<!ENTITY linksidebar.duplicates.label "Om dubblettlänkar hittas">
+<!ENTITY linksidebar.duplicatesCriteria.label "Två länkar är dubbletter om">
+<!ENTITY linksidebar.showDuplicates.label "Visa alla länkar, inklusive dubbletter">
+<!ENTITY linksidebar.doNotShowduplicates.label "Visa endast den första förekomsten av dubbla länkar">
+<!ENTITY linksidebar.duplicateUrl.label "De har samma länkplats  (href)">
+<!ENTITY linksidebar.duplicateText.label "De har samma länktext">
+<!ENTITY linksidebar.duplicateUrlText.label "De har samma länktext och -plats">
+<!ENTITY linksidebar.numThreads.tooltiptext "Antal samtidiga tester.">
+<!ENTITY linksidebar.timeout.tooltiptext "Antalet millisekunder testaren väntar på svar från servern. Om inget svar mottas inom detta intervall märks länken med &quot;Timed-out&quot;">
+<!ENTITY linksidebar.requestType.tooltiptext "Typen av begäran som skickas till servern. GET är den vanliga HTTP-begärandetypen, och returnerar HTTP-huvudet såväl som hela sidinnehållet. HEAD returnerar endast HTTP-huvudena och inget sidinnehåll (d.v.s. ingen HTML skickas av servern), vilket tar mindre bandbredd i anspråk. Ett fåtal servrar svarar inte korrekt på HEAD-begäranden, så GET-begäranden finns som alternativ. Använd GET om testerna felaktigt rapporterar vissa länkar som brutna trots att de faktiskt fungerar.">
+<!ENTITY linksidebar.statusDisplay.tooltiptext "Bestämmer hur testresultaten skall visas i kolumnen &quot;Test Results&quot; i LinkSidebar.">
+<!ENTITY linksidebar.selectall.accesskey "a">
+<!ENTITY linksidebar.copyurls.accesskey "K">
+<!ENTITY linksidebar.invertselection.accesskey "I">
+<!ENTITY linksidebar.reloadLinks.label "Uppdatera alla länkar">
+<!ENTITY linksidebar.reloadLinks.accessKey "U">
+<!ENTITY linksidebar.testselectedlinks.label "Testa markerade länkar">
+<!ENTITY linksidebar.testselectedlinks.tooltiptext "Testa alla markerade länkar i sidopanelen">
+<!ENTITY linksidebar.testselectedlinks.accessKey "e">
+<!ENTITY linksidebar.testalllinks.label "Testa alla länkar">
+<!ENTITY linksidebar.testalllinks.tooltiptext "Testa alla länkar i sidopanelen">
+<!ENTITY linksidebar.testalllinks.accessKey "T">
+<!ENTITY linksidebar.selectalllinks.label "Markera alla">
+<!ENTITY linksidebar.selectalllinks.tooltiptext "Markera alla länkar i sidopanelen (Ctrl + A)">
+<!ENTITY linksidebar.selectalllinks.accessKey "a">
+<!ENTITY linksidebar.invertselection.label "Invertera markeringar">
+<!ENTITY linksidebar.invertselection.tooltiptext "Invertera markeringar (Ctrl + I)">
+<!ENTITY linksidebar.invertselection.accessKey "I">
+<!ENTITY linksidebar.properties.title "Länkegenskaper">
+<!ENTITY linksidebar.copyLink.label "Kopiera länkplats">
+<!ENTITY linksidebar.copyLink.accessKey "ä">
+<!ENTITY linksidebar.requestType.head.label "HEAD">
+<!ENTITY linksidebar.requestType.get.label "GET">
+<!ENTITY linksidebar.open.label "Öppna">
+<!ENTITY linksidebar.open.accessKey "Ö">
+<!ENTITY linksidebar.openInNewTab.label "Öppna i ny flik">
+<!ENTITY linksidebar.openInNewTab.accessKey "f">
+<!ENTITY linksidebar.openInNewWindow.label "Öppna i nytt fönster">
+<!ENTITY linksidebar.openInNewWindow.accessKey "y">
+<!ENTITY linksidebar.properties.label "Egenskaper">
+<!ENTITY linksidebar.properties.accessKey "p">
+<!ENTITY linksidebar.context_highlightLinks.accessKey "g">						  
+<!ENTITY linksidebar.context_highlightLinks.label "Färgmarkera markerade länkar">
+<!ENTITY linksidebar.context_highlightLinks.tooltiptext "Färgmarkerar sidopanelens markerade länkar på den aktuella webbsidan">
+<!ENTITY linksidebar.context_unHighlightLinks.accessKey "m">						  
+<!ENTITY linksidebar.context_unHighlightLinks.label "Ta bort färgmarkeringar">
+<!ENTITY linksidebar.context_unHighlightLinks.tooltiptext "Tar bort alla färgmarkeringar som tillämpats på den aktuella webbsidan">
+<!ENTITY linksidebar.deselect.label "Avmarkera alla">
+<!ENTITY linksidebar.deselect.accessKey "v">
+<!ENTITY linksidebar.deselect.tooltiptext "Avmarkera alla länkar">
+<!ENTITY linksidebar.highlightTestedLinks.label "Färgmarkera testade länkar">
+<!ENTITY linksidebar.highlightTestedLinks.accessKey "n">
+<!ENTITY linksidebar.highlightTestedLinks.tooltiptext "Färgmarkerar alla testade länkar på den aktuella webbsidan med färger som visar teststatusen">

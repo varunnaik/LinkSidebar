@@ -1,0 +1,93 @@
+<!ENTITY linksidebar.toggle.accessKey "l">
+<!ENTITY linksidebar.label "LinkSidebar">
+<!ENTITY linksidebar.links.label "Links">
+<!ENTITY linksidebar.open.tooltip "Open LinkSidebar">
+<!ENTITY linksidebar.locklinks.label "Lock">
+<!ENTITY linksidebar.linktext.label "Link text">
+<!ENTITY linksidebar.url.label "URL">
+<!ENTITY linksidebar.domain.label "Domain">
+<!ENTITY linksidebar.teststatus.label "Test Status">
+<!ENTITY linksidebar.prefstitle.title "LinkSidebar Preferences">
+<!ENTITY linksidebar.display.label "Display">
+<!ENTITY linksidebar.testing.label "Testing">
+<!ENTITY linksidebar.colors.label "Colours">
+<!ENTITY linksidebar.customlinkcol.label "Use custom colour for links">
+<!ENTITY linksidebar.custombg.label "Use custom background colour">
+<!ENTITY linksidebar.clickaction.label "When I click on a link in the sidebar">
+<!ENTITY linksidebar.noaction.label "Do nothing">
+<!ENTITY linksidebar.openInCurrentTab.label "Open link in the current tab">
+<!ENTITY linksidebar.highlightInDocument.label "Highlight link in document (if visible)">
+<!ENTITY linksidebar.numThreads.label "Number of simultaneous tests">
+<!ENTITY linksidebar.timeout.label "Timeout (milliseconds)">
+<!ENTITY linksidebar.requestType.label "Request type">
+<!ENTITY linksidebar.test_selected_links.label "Test selected links">
+<!ENTITY linksidebar.test_all_links.label "Test all links">
+<!ENTITY linksidebar.linkurl.label "URL:">
+<!ENTITY linksidebar.domain.label "Domain:">
+<!ENTITY linksidebar.status.title "Test status">
+<!ENTITY linksidebar.status.label "HTTP status:">
+<!ENTITY linksidebar.testDate.label "Tested:">
+<!ENTITY linksidebar.responseTime.label "Response time:">
+<!ENTITY linksidebar.milliseconds.label "ms">
+<!ENTITY linksidebar.header.label "Full response header:">
+<!ENTITY linksidebar.linkInPageUrl.label "Page URL:">
+<!ENTITY linksidebar.cancelTest.label "Cancel Test">
+<!ENTITY linksidebar.statusDisplay.label "Display test status as">
+<!ENTITY linksidebar.showIconsOnly.label "Icons only">
+<!ENTITY linksidebar.showIconsText.label "Icons with text">
+<!ENTITY linksidebar.bookmarkLink.label "Bookmark this Link">
+<!ENTITY linksidebar.bookmarkLink.accessKey "L">
+<!ENTITY linksidebar.duplicateLinks.label "Duplicate links">
+<!ENTITY linksidebar.duplicates.label "If duplicate links are present">
+<!ENTITY linksidebar.duplicatesCriteria.label "Two links are duplicates if">
+<!ENTITY linksidebar.showDuplicates.label "Show all links including duplicates">
+<!ENTITY linksidebar.doNotShowduplicates.label "Show only first occurence of duplicated links">
+<!ENTITY linksidebar.duplicateUrl.label "They have the same link location  (href)">
+<!ENTITY linksidebar.duplicateText.label "They have the same link text">
+<!ENTITY linksidebar.duplicateUrlText.label "They have the same link text and location">
+<!ENTITY linksidebar.numThreads.tooltiptext "Number of simultaneous tests.">
+<!ENTITY linksidebar.timeout.tooltiptext "Number of milliseconds the tester waits for a response from the server. If no response is received by the end of this interval, the link is marked 'Timed-out'">
+<!ENTITY linksidebar.requestType.tooltiptext "Type of request to send to the server. GET is the normal HTTP request type; this returns the HTTP header as well as the entire page contents. HEAD returns only the HTTP headers and no page content (i.e, no HTML is sent by the server) thus reducing bandwidth used. A few servers do not respond properly to HEAD requests, so GET requests are also an option. Use GET if the testing incorrectly reports some links as failed when they actually work.">
+<!ENTITY linksidebar.statusDisplay.tooltiptext "Determines how test results will be displayed in the 'Test Results' column in LinkSidebar.">
+<!ENTITY linksidebar.selectall.accesskey "A">
+<!ENTITY linksidebar.copyurls.accesskey "C">
+<!ENTITY linksidebar.invertselection.accesskey "I">
+<!ENTITY linksidebar.reloadLinks.label "Reload All Links">
+<!ENTITY linksidebar.reloadLinks.accessKey "R">
+<!ENTITY linksidebar.testselectedlinks.label "Test Selected Links">
+<!ENTITY linksidebar.testselectedlinks.tooltiptext "Test all selected links in the sidebar">
+<!ENTITY linksidebar.testselectedlinks.accessKey "E">
+<!ENTITY linksidebar.testalllinks.label "Test All Links">
+<!ENTITY linksidebar.testalllinks.tooltiptext "Test all links in sidebar">
+<!ENTITY linksidebar.testalllinks.accessKey "K">
+<!ENTITY linksidebar.selectalllinks.label "Select All">
+<!ENTITY linksidebar.selectalllinks.tooltiptext "Select all links in the sidebar">
+<!ENTITY linksidebar.selectalllinks.accessKey "A">
+<!ENTITY linksidebar.invertselection.label "Invert Selection">
+<!ENTITY linksidebar.invertselection.tooltiptext "Invert selection">
+<!ENTITY linksidebar.invertselection.accessKey "I">
+<!ENTITY linksidebar.properties.title "Link Properties">
+<!ENTITY linksidebar.copyLink.label "Copy Link Location">
+<!ENTITY linksidebar.copyLink.accessKey "a">
+<!ENTITY linksidebar.requestType.head.label "HEAD">
+<!ENTITY linksidebar.requestType.get.label "GET">
+<!ENTITY linksidebar.open.label "Open">
+<!ENTITY linksidebar.open.accessKey "O">
+<!ENTITY linksidebar.openInNewTab.label "Open in New Tab">
+<!ENTITY linksidebar.openInNewTab.accessKey "T">
+<!ENTITY linksidebar.openInNewWindow.label "Open in New Window">
+<!ENTITY linksidebar.openInNewWindow.accessKey "w">
+<!ENTITY linksidebar.properties.label "Properties">
+<!ENTITY linksidebar.properties.accessKey "p">
+<!ENTITY linksidebar.context_highlightLinks.accessKey "H">						  
+<!ENTITY linksidebar.context_highlightLinks.label "Highlight Selected Links">
+<!ENTITY linksidebar.context_highlightLinks.tooltiptext "Highlights selected links in the sidebar on the current webpage">
+<!ENTITY linksidebar.context_unHighlightLinks.accessKey "v">						  
+<!ENTITY linksidebar.context_unHighlightLinks.label "Remove Highlights">
+<!ENTITY linksidebar.context_unHighlightLinks.tooltiptext "Removes all highlights applied on the current webpage">
+<!ENTITY linksidebar.deselect.label "Deselect All">
+<!ENTITY linksidebar.deselect.accessKey "d">
+<!ENTITY linksidebar.deselect.tooltiptext "Deselect All Links">
+<!ENTITY linksidebar.highlightTestedLinks.label "Highlight Tested Links">
+<!ENTITY linksidebar.highlightTestedLinks.accessKey "g">
+<!ENTITY linksidebar.highlightTestedLinks.tooltiptext "Highlight all tested links on the current webpage with colours indicating the test status">

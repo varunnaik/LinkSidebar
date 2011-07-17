@@ -1,0 +1,203 @@
+<?xml version="1.0"?> 
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % linksidebarDTD SYSTEM "chrome://linksidebar/locale/linksidebar.dtd">
+%linksidebarDTD;
+]>
+
+<prefwindow id="linksidebar-preferences-dialog"
+        title="&linksidebar.prefstitle.title;"
+		onload="this.focus; init();"
+		buttons="accept,cancel"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+			   
+	<script type="application/x-javascript">
+		function init()
+		{
+			if (document.getElementById('linksidebar_custom_color').value) {
+				showColorpicker(document.getElementById('useCustomLinkColor'), 'linksidebar-link-colorpicker');			
+			} 
+			if (document.getElementById('linksidebar_custom_bg_color').value) {
+				showColorpicker(document.getElementById('useCustomBgColor'), 'linksidebar-bg-colorpicker');	
+			}
+		}
+		
+		function showColorpicker(checkbox, colorpickerId)
+		{
+			var colorpicker = document.getElementById(colorpickerId);
+			if (checkbox.checked) {
+				colorpicker.setAttribute('hidden','false');
+			} else {
+				colorpicker.setAttribute('hidden', 'true');
+			}
+		}
+		
+		function selectValChanged()
+		{
+			if (document.getElementById('linksidebar-showdupes-radiogroup').selectedItem.value == 1)
+				document.getElementById('linksidebar-dupestype').setAttribute('disabled', 'false');
+			else
+				document.getElementById('linksidebar-dupestype').setAttribute('disabled', 'true');
+		}
+	</script>
+	<prefpane id="preferences-panel" label="Preferences">
+	<preferences>
+		<preference id="linksidebar_custom_color" name="linksidebar.customLinkcol" type="bool"/>
+		<preference id="linksidebar_custom_bg_color" name="linksidebar.customBgCol" type="bool"/>
+	    <preference id="linksidebar_link_color" name="linksidebar.linkcol" type="string"/>
+	    <preference id="linksidebar_bg_color" name="linksidebar.bgcol" type="string"/>	
+	    <preference id="linksidebar_click_action" name="linksidebar.clkaction" type="string"/>
+		<preference id="linksidebar_show_tbtn" name="linksidebar.showbtn" type="bool"/>
+		<preference id="linksidebar_timeout" name="linksidebar.timeout" type="int"/>	
+		<preference id="linksidebar_num_threads" name="linksidebar.maxThreads" type="string"/>
+		<preference id="linksidebar_request_type" name="linksidebar.requestType" type="string"/>
+		<preference id="linksidebar_status_display" name="linksidebar.showStatus" type="string"/>
+		<preference id="linksidebar_show_duplicates" name="linksidebar.showDuplicates" type="int"/>
+		<preference id="linksidebar_duplicates_type" name="linksidebar.duplicatesType" type="int"/>
+	</preferences>
+	<dialogheader title="&linksidebar.prefstitle.title;" />
+	
+	<tabbox id="linksidebar-tabbox">
+	<tabs>
+		<tab label="&linksidebar.display.label;" id="linksidebar-display-tab" />
+		<tab label="&linksidebar.testing.label;" id="linksidebar-testing-tab" />
+		<tab label="&linksidebar.duplicateLinks.label;" id="linksidebar-duplicates-tab" />
+	</tabs>
+	<tabpanels flex="1">
+	<tabpanel orient="vertical">
+	<groupbox>
+		<caption label="&linksidebar.colors.label;" />	
+		<grid>
+		<columns>
+			<column />
+			<column />
+			<column />
+		</columns>
+		<rows>
+			<row>
+				<checkbox label="&linksidebar.customlinkcol.label;" preference="linksidebar_custom_color" top="3px" 
+					oncommand="showColorpicker(this, 'linksidebar-link-colorpicker')" 
+					id="useCustomLinkColor" /> 
+				<spacer width="28px" />
+				<colorpicker id="linksidebar-link-colorpicker" preference="linksidebar_link_color" type="button" hidden="true" color="#0000ff" />
+			</row>
+			<row><spacer height="5px" /></row>
+			<row>
+				<checkbox label="&linksidebar.custombg.label;" preference="linksidebar_custom_bg_color"  top="3px" 
+					oncommand="showColorpicker(this, 'linksidebar-bg-colorpicker')" id="useCustomBgColor" />
+				<spacer width="3px" />
+				<colorpicker id="linksidebar-bg-colorpicker" preference="linksidebar_bg_color" type="button" hidden="true" color="#ffffff" />
+			</row>
+		</rows>
+		</grid>
+	</groupbox>
+		<grid>
+		<rows>
+			<row />
+		</rows>
+		<columns>
+			<column>
+				<vbox>
+				<spacer height="4px" />
+				<label value="&linksidebar.clickaction.label;" />
+				</vbox>
+			</column>
+			<column>
+				<menulist preference="linksidebar_click_action">
+				  <menupopup>
+				  	<menuitem label="&linksidebar.highlightInDocument.label;" value="5"/>	
+				    <menuitem label="&linksidebar.openInCurrentTab.label;" value="1"/>
+				    <menuitem label="&linksidebar.openInNewTab.label;" value="0"/>
+				    <menuitem label="&linksidebar.openInNewWindow.label;" value="2"/>
+				    <menuitem label="&linksidebar.copyLink.label;" value="3"/>
+				    <menuitem label="&linksidebar.noaction.label;" value="4"/>				
+				  </menupopup>
+				</menulist>
+			</column>
+
+		</columns>
+		</grid>
+	</tabpanel>
+	<tabpanel>
+		<grid>
+		<columns>
+			<column />
+			<column />
+		</columns>
+		<rows>
+		 <row>
+			<label value="&linksidebar.numThreads.label;" tooltiptext="&linksidebar.numThreads.tooltiptext;" />
+			<menulist preference="linksidebar_num_threads" tooltiptext="&linksidebar.numThreads.tooltiptext;">
+				  <menupopup>
+				    <menuitem label="1" value="1"/>
+				    <menuitem label="2" value="2"/>
+				    <menuitem label="3" value="3"/>
+				    <menuitem label="4" value="4"/>
+				    <menuitem label="5" value="5"/>
+					<menuitem label="6" value="6"/>					
+				  </menupopup>
+			</menulist>
+		 </row>
+		 <row>
+			<label value="&linksidebar.timeout.label;" tooltiptext="&linksidebar.timeout.tooltiptext;" />
+			<textbox id="linksidebar-timeout" preference="linksidebar_timeout" tooltiptext="&linksidebar.timeout.tooltiptext;" />
+		 </row>
+		 <row>
+			<label value="&linksidebar.requestType.label;" tooltiptext="&linksidebar.requestType.tooltiptext;" />
+			<menulist preference="linksidebar_request_type" tooltiptext="&linksidebar.requestType.tooltiptext;">
+				  <menupopup>
+				    <menuitem label="&linksidebar.requestType.get.label;" value="GET"/>
+				    <menuitem label="&linksidebar.requestType.head.label;" value="HEAD"/>				
+				  </menupopup>
+			</menulist>
+		 </row>
+		 <row>
+			<label value="&linksidebar.statusDisplay.label;" tooltiptext="&linksidebar.statusDisplay.tooltiptext;" />
+			<menulist preference="linksidebar_status_display" tooltiptext="&linksidebar.statusDisplay.tooltiptext;">
+				  <menupopup>
+				    <menuitem label="&linksidebar.showIconsOnly.label;" value="icons"/>
+				    <menuitem label="&linksidebar.showIconsText.label;" value="text"/>				
+				  </menupopup>
+			</menulist>
+		 </row>			
+		</rows>
+		</grid>	
+	</tabpanel>
+	<tabpanel>
+		<vbox>
+		<groupbox>
+			<caption label="&linksidebar.duplicates.label;" />
+			<radiogroup preference="linksidebar_show_duplicates" id="linksidebar-showdupes-radiogroup" onselect="selectValChanged()">
+				<radio label="&linksidebar.showDuplicates.label;" value="0"/>
+				<radio label="&linksidebar.doNotShowduplicates.label;" value="1"/>	
+			</radiogroup>
+		</groupbox>
+		<grid>
+			<columns>
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<vbox>
+						<spacer height="4px" />
+						<label value="&linksidebar.duplicatesCriteria.label;" />
+					</vbox>
+					<menulist preference="linksidebar_duplicates_type" disabled="true" id="linksidebar-dupestype">
+						<menupopup>
+							<menuitem label="&linksidebar.duplicateUrl.label;" value="0"/>
+							<menuitem label="&linksidebar.duplicateText.label;" value="1"/>
+							<menuitem label="&linksidebar.duplicateUrlText.label;" value="2"/>								
+						</menupopup>
+					</menulist>
+				</row>
+				<row />
+			</rows>
+		</grid>	
+		</vbox>
+	</tabpanel>
+	</tabpanels>
+	</tabbox>
+	</prefpane>
+</prefwindow>

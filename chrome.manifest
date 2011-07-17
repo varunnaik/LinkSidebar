@@ -1,0 +1,9 @@
+content	linksidebar chrome/content/
+overlay	chrome://browser/content/browser.xul	chrome://linksidebar/content/overlay.xul
+overlay chrome://global/content/customizeToolbar.xul chrome://linksidebar/content/overlay.xul
+
+skin linksidebar classic/1.0 chrome/skin/classic/
+
+locale linksidebar en-US chrome/locale/en-US/
+locale linksidebar en-UK chrome/locale/en-UK/
+locale linksidebar sv-SE chrome/locale/sv-SE/

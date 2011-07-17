@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="linksidebar@extendtech.extensions.com"
+                   em:name="LinkSidebar"
+                   em:version="1.0.3"
+                   em:creator="Varun Naik"
+                   em:description="View, search and test hyperlinks in a web page."
+                   em:homepageURL="http://linksidebar.mozdev.org/"
+                   em:optionsURL="chrome://linksidebar/content/prefs.xul">
+    <em:contributor>Silk icon set 1.3 by Mark James. http://www.famfamfam.com/lab/icons/silk/</em:contributor>
+    <em:contributor>Mikael Hiort af Ornäs, Swedish translation</em:contributor>
+    <em:targetApplication RDF:resource="rdf:#$f4ifN2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$f4ifN2"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="4.0"
+                   em:maxVersion="7.0a1" />
+</RDF:RDF>

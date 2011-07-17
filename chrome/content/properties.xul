@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://linksidebar/skin/linksidebar.css" type="text/css"?>
+<?xml-stylesheet href="chrome://linksidebar/skin/linksidebarProperties.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % linksidebarDTD SYSTEM "chrome://linksidebar/locale/linksidebar.dtd">
+%linksidebarDTD;
+]>
+
+ <dialog buttons="accept"
+        id="linksidebar-propertiesDialog"
+		ondialogaccept="return true;"
+		onload="this.focus(); dialogInit();"
+        title="&linksidebar.properties.title;"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		style="min-width: 400px !important;">
+			
+	<script type="text/javascript">
+		function dialogInit() {
+			var theDialog;
+			var urlTextBox;
+			var domainBox;
+			var statusBox;
+			var status;
+			var header;
+			var testTime;
+			var responseTime;
+			var icon;
+			var pageTitle;
+			var pageUrl;
+			var linkCount;
+			var link, links;
+			var bundle = document.getElementById('linksidebar-propStringBundle');
+
+			document.title = window.arguments[3];
+			urlTextBox = document.getElementById('linksidebar-props-linkUrl');
+			urlTextBox.value = window.arguments[2];
+			urlTextBox = document.getElementById('linksidebar-props-linkDomain');
+			urlTextBox.value = window.arguments[4];		
+			statusBox = document.getElementById('linksidebar-props-statusBox');
+			
+			if (window.arguments[7] || window.arguments[10] == 8 || window.arguments[10]== 7) {
+				statusBox.removeAttribute('hidden');
+				status = document.getElementById('linksidebar-props-linkStatus');
+				if (window.arguments[10] == 8) // Unsupported link type - add a descriptive message in the status field
+					status.value = bundle.getString('badProtocol');
+				else if (window.arguments[10] == 7)
+					status.value = bundle.getString('timedOut');
+				else
+					status.value = window.arguments[7];				
+				icon = document.getElementById('linksidebar-props-linkStatusIcon');
+				if (typeof (window.arguments[10]) != 'undefined')
+					icon.setAttribute("class","status_" + window.arguments[10]);
+				else
+					icon.setAttribute("class","status_default");
+				testTime = document.getElementById('linksidebar-props-linkTestDate');				
+				testTime.value = window.arguments[9].toLocaleTimeString() + ", " + window.arguments[9].toDateString();
+				if ((window.arguments[10] == 7) || (window.arguments[10] == 8)) {
+					responseTime = document.getElementById('linksidebar-props-linkResponseTime');
+					responseTime.value = '-';
+				} else {
+					responseTime = document.getElementById('linksidebar-props-linkResponseTime');
+					responseTime.value = (window.arguments[9] - window.arguments[11]) + bundle.getString('milliseconds');
+				}
+				header = document.getElementById('linksidebar-props-linkHeader');
+				if (typeof (window.arguments[8]) != 'undefined')
+					header.value = window.arguments[8];				
+			}
+			pageTitle = document.getElementById('linksidebar-props-pageTitle');
+			if (window.arguments[1])
+				pageTitle.label = bundle.getFormattedString('pageTitle', [window.arguments[1]]);
+			pageTitle = document.getElementById('linksidebar-props-pageTitleUrl');	
+				pageTitle.value = bundle.getString('pageUrl');
+
+			pageUrl = document.getElementById('linksidebar-props-pageUrl');
+			pageUrl.value = window.arguments[0];
+			linkCount = document.getElementById('linksidebar-props-count');
+			
+			link = bundle.getString('link');
+			links = bundle.getString('links');
+			
+			linkCount.value = bundle.getFormattedString('propLinkCount', [window.arguments[5],
+								(window.arguments[5] == 1)? bundle.getString('link') : bundle.getString('links'),
+								window.arguments[6],
+								(window.arguments[6] == 1)? bundle.getString('link') : bundle.getString('links')]);		
+		}	
+	</script>
+	
+	<stringbundleset>		
+		<stringbundle id="linksidebar-propStringBundle" 
+				src="chrome://linksidebar/locale/linksidebar.properties"/>
+	</stringbundleset>
+
+	<grid flex="1">
+		<columns>
+			<column/>
+			<column flex="1"/>
+		</columns>
+		<rows flex="1">		
+			<row flex="1">
+				<label value="&linksidebar.linkurl.label;"/>
+				<textbox id="linksidebar-props-linkUrl" multiline="true" />
+			</row>
+			<row flex="1">
+				<label value="&linksidebar.domain.label;:"/>
+				<textbox id="linksidebar-props-linkDomain" />
+			</row>
+		</rows>
+	</grid>
+
+	<grid flex="1">
+		<columns flex="1">
+			<column flex="1"/>
+		</columns>
+		<rows flex="1">
+			<row flex="1">
+				<groupbox id="linksidebar-props-statusBox" hidden="true" flex="1">
+					<caption label="&linksidebar.status.title;"/>
+					<grid flex="1">
+						<columns>
+						<column />
+						<column  flex="1"/>
+						</columns>
+						<rows>
+						<row>
+							<label value="&linksidebar.status.label;"/>
+							<hbox>
+								<textbox id="linksidebar-props-linkStatus" />
+								<image id="linksidebar-props-linkStatusIcon" style="padding-top:0.5em; padding-bottom: 0.5em;"/>
+							</hbox>
+						</row>
+						<row>
+							<label value="&linksidebar.testDate.label;" />
+							<textbox id="linksidebar-props-linkTestDate" flex="1"/>
+						</row>
+						<row>
+							<label value="&linksidebar.responseTime.label;"/>
+							<textbox id="linksidebar-props-linkResponseTime" flex="1" maxlen="7"/>
+						</row>
+					</rows>
+					</grid>
+					<vbox>
+						<label value="&linksidebar.header.label;"/>
+						<textbox id="linksidebar-props-linkHeader" multiline="true"/>
+					</vbox>
+				</groupbox>
+			</row>
+			<row flex="1">
+				<groupbox flex="1">
+					<caption id="linksidebar-props-pageTitle"/>
+					<vbox flex="1">
+						<label id="linksidebar-props-pageTitleUrl" value="&linksidebar.linkInPageUrl.label;"/>
+						<textbox id="linksidebar-props-pageUrl" multiline="true" flex="1"/>
+					</vbox>
+					<label id="linksidebar-props-count"/>
+				</groupbox>
+				<spacer />
+			</row>
+		</rows>
+	</grid>
+ </dialog>
